@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+    	<a href="/#/" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Home</a>
+
+    	<table class="table table-hover table-bordered">
+    	 <tbody>
+    		<tr ng-repeat="book in books">
+    			<td ng-bind="book.name"></td>
+    			<td ng-bind="book.author"></td>
+    			<td ng-bind="book.date_added"></td>
+    			<td><button class="btn btn-danger" ng-click="deleteBook(book);">Delete Book</button></td>
+    		</tr>
+    	 </tbody>
+    	</table>
+    </div>
+</div>

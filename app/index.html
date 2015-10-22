@@ -13,7 +13,6 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/full.css">
     <!-- endbuild -->
   </head>
   <body ng-app="bookshelfApp">
@@ -39,10 +38,14 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/storageService.js"></script>
+    
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/add-book.js"></script>
+    <script src="scripts/controllers/books.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

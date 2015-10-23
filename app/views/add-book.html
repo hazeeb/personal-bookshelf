@@ -1,6 +1,8 @@
+</br>
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
         <a href="/#/" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Home</a>
+        <a href="/#/books" class="btn btn-default"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> My Books</a>
 
         <h1>Add a book</h1>
         <hr>
@@ -18,13 +20,14 @@
                 <input type="text" class="form-control" placeholder="Category" ng-model="book.category">
             </div>
 
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Date Added" ng-model="book.date_added">
+            <div>
+              <input type="text" ng-model="book.date_added" class="form-control" placeholder="Date Added" datepicker-popup="MM-dd-yyyy" datepicker-append-to-body="true" is-open="data.isOpen"  ng-click="data.isOpen = true">
+
             </div>
 
             <div class="radio">
                 <label>
-                    <input type="radio" name="status" ng-model="book.status" value="reading">
+                    <input type="radio" name="status" ng-model="book.status" value="reading" checked="checked">
                     Reading
                 </label>
                 <label>
@@ -39,5 +42,16 @@
         
             <button type="submit" class="btn btn-info btn-block" ng-click="addBook($event);"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Book</button>
         </form>
+        <hr>
+
+        <div class="alert alert-danger" ng-show="bookAddError">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong> Error ! </strong> The book already exist.
+        </div>
+
+        <div class="alert alert-success" ng-show="bookAdded">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong> Success! </strong> The book has been added.
+        </div>
     </div>
 </div>

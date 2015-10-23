@@ -10,9 +10,24 @@ angular.module('bookshelfApp')
 			books : []
 		};
 
-		service.addBook = function(book){
-			service.books.push(book);
-			localStorage.setItem(storageID, JSON.stringify(service.books));
+		service.addBook = function(newBook){
+
+			var exists = false;
+
+			service.books.forEach(function(book){
+				if(book.name === newBook.name && book.author === newBook.author){
+					exists = true;
+				}
+			});
+
+			if (exists === false){
+				service.books.push(newBook);
+				localStorage.setItem(storageID, JSON.stringify(service.books));
+				return true;
+			}else{
+				return false;
+			}
+
 		};
 
 		service.getBooks = function(){
@@ -33,7 +48,7 @@ angular.module('bookshelfApp')
 			localStorage.setItem(storageID, JSON.stringify(service.books));
 		};
 
-	
+
 
 		return service;
 	});

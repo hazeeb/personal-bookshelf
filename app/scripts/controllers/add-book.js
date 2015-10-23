@@ -11,12 +11,29 @@ angular.module('bookshelfApp')
   .controller('AddBookCtrl', function ($scope, storageService) {
 	
 		$scope.book = {};
+		$scope.bookAdded = false;
+		$scope.bookAddError = false;
 
 		$scope.addBook = function($event){
 			$event.preventDefault();
 			
-			storageService.addBook($scope.book);
+			if(storageService.addBook($scope.book)){
+				// Book has been added
+				$scope.bookAdded = true;
+				$scope.bookAddError = false;
+
+				$scope.book = {};
+			}else{
+				// Book could not be added
+				$scope.bookAdded = false;
+				$scope.bookAddError = true;
+			}
 		};
 
-
 	});
+
+
+ angular.module('bookshelfApp')
+ 	.controller('DatepickerCtrl', function(){
+
+ 	});
